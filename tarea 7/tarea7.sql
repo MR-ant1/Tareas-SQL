@@ -1,0 +1,30 @@
+CREATE DATABASE tarea7_secondHand;
+CREATE TABLE users(
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50),
+email VARCHAR(100) NOT NULL UNIQUE,
+password VARCHAR(255) NOT NULL
+);
+CREATE TABLE products(
+id INT AUTO_INCREMENT PRIMARY KEY,
+product_name VARCHAR(50),
+description VARCHAR(200),
+price VARCHAR(8),
+user_id INT,
+FOREIGN KEY (user_id) REFERENCES users(id)
+);
+CREATE TABLE reviews(
+id INT AUTO_INCREMENT PRIMARY KEY,
+info VARCHAR(200),
+user_id INT,
+FOREIGN KEY (user_id) REFERENCES users(id)
+);
+CREATE TABLE solds(
+id INT AUTO_INCREMENT PRIMARY KEY,
+price VARCHAR(10),
+date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+user_id INT,
+product_id INT,
+FOREIGN KEY (user_id) REFERENCES users(id),
+FOREIGN KEY (product_id) REFERENCES products(id)
+);
