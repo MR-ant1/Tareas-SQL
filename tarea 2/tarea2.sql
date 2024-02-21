@@ -27,4 +27,7 @@ CREATE TABLE bookings(
 );
 CREATE TABLE reviews(
 	id INT AUTO_INCREMENT PRIMARY KEY
+    RESTAURANT_ID?
+    USER_ID?
+
 );
